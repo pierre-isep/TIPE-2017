@@ -14,6 +14,8 @@ robot.set_speed(SPEED)
 
 prev_angle = 0
 
+def
+
 while 1:  # Boucle infinie
     try:
         sonar1 = Sonar(23, 24)
@@ -44,31 +46,38 @@ while 1:  # Boucle infinie
 si ils détectent un objet c'est qu'on recule sur quelque chose, il faut alors réavancer
         
 """
-        # set angle
-        if distance >= 70 :
-            angle = 0 #pas d'obstacle à proximité, on ne tourne pas 
-            robot.set_speed(SPEED)
-            
-            print("Tout droit")    
-        elif distance >= 20:
-            # Distance : entre 20 et 70. 
-            d = 1- ((distance - 20) * 2 / 100)
-            # Distance : entre 0 et 1 . (Unités arbitraires!)
-            angle = d * 100 # cela permet d'appliquer un pourcentage de rotation
-            robot.set_speed(SPEED)
-            
-            print("je tourne de "+str(angle))
-        else :
-            # La distance est de moins de 5 cm
-            angle = 0
-            robot.set_speed(-SPEED)
-            
-            print("Je recule !")
-        
-        # On change l'angle seulement si il est != du précédent, ça évite de faire travailler les lib pour rien. 
-        #if angle != prev_angle : 
-        #    robot.set_angle(angle) # Change la direction du robot
-        """aucune idée si ca sert de mettre ca"""  
+          def calcul (distance) :
+            if distance >= 70 :
+                angle = 0 #pas d'obstacle à proximité, on ne tourne pas 
+                robot.set_speed(SPEED)
+
+                print("Tout droit") 
+
+            elif distance >= 20:
+                # Distance : entre 20 et 70. 
+                d = 1- ((distance - 20) * 2 / 100)
+                # Distance : entre 0 et 1 . (Unités arbitraires!)
+                angle = d * 100 # cela permet d'appliquer un pourcentage de rotation
+                robot.set_speed(SPEED)
+
+                print("je tourne de "+str(angle))
+            else :
+                # La distance est de moins de 5 cm
+                angle = 0
+                robot.set_speed(-SPEED)
+    
+                print("Je recule !")
+
+        calcul(distance1)
+"""
+        calcul(distance2)
+        calcul(distance3)
+        calcul(distance4)"""
+          
+            # On change l'angle seulement si il est != du précédent, ça évite de faire travailler les lib pour rien. 
+            #if angle != prev_angle : 
+            #    robot.set_angle(angle) # Change la direction du robot
+            """aucune idée si ca sert de mettre ca"""  
       
         robot.set_angle(angle) # Change la direction du robot
         robot.compute_and_go()
