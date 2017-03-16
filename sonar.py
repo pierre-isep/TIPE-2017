@@ -13,11 +13,9 @@ class Infra():
 
         def proxi(self) :
             if GPIO.input(IN)==1 : #si il y'a un objet à proximité détecté
-                a=1
+                return True
             else :
-                a=0
-
-            return a
+                return False
 
 
 
