@@ -33,13 +33,10 @@ while 1:  # Boucle infinie
 
         print(distance1,"distance2,distance3,distance4")
 
-        proxy1 = infra1.proxy()
-        proxy2 = infra2.proxy()
-
-        if proxy1 == 1 
+        if infra1.is_near_obstacle():
             angle = 0
             robot.set_speed(-SPEED)
-        if proxy2 == 1
+        if infra2.is_near_obstacle():
             angle = 0
             robot.set_speed(-SPEED)
 
