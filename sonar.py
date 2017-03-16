@@ -11,7 +11,7 @@ class Infra():
             self.sortie = sortie
             GPIO.setup(self.sortie,GPIO.IN)
 
-        def proxi(self) :
+        def is_near_obstacle(self) :
             if GPIO.input(IN)==1 : #si il y'a un objet à proximité détecté
                 return True
             else :
